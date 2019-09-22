@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Main.unity
+    guid: e823ca5404021cd4ebd59a4e95b9dd77
+  - enabled: 1
+    path: Assets/Scenes/Romantic Beach.unity
+    guid: e36a58d35bcbb6948b71fa88fef86205
+  - enabled: 1
+    path: Assets/Scenes/Atrium.unity
+    guid: a8d066a490758b64391e7db6624a3a82
+  - enabled: 1
+    path: Assets/Scenes/Viola Practice.unity
+    guid: f61da195db070034baa273072265e86e
   m_configObjects: {}

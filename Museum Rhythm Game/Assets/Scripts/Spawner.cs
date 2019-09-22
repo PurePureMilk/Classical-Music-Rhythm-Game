@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     public Transform[] points;
     public float beat;
     private float timer;
+    public int numOfCubeRelased = 0;
+    private int cubeToRelease = 2;
 
     public bool hasStarted = false;
 
@@ -28,7 +30,17 @@ public class Spawner : MonoBehaviour
         {
             if (timer > beat)
             {
-                GameObject cube = Instantiate(cubes[Random.Range(0, 7)], points[Random.Range(0, 4)]);
+                GameObject cube = null;
+                if (numOfCubeRelased == 3 || numOfCubeRelased == 6)
+                {
+                    cube = Instantiate(cubes[cubeToRelease], points[Random.Range(0, 4)]);
+                    cubeToRelease++;
+                }
+                else
+                {
+                    cube = Instantiate(cubes[Random.Range(0, 2)], points[Random.Range(0, 4)]);
+                }
+                numOfCubeRelased++;
                 cube.transform.localPosition = Vector3.zero;
                 cube.transform.Rotate(transform.forward, 90 * Random.Range(0, 4));
                 timer -= beat;
@@ -36,11 +48,7 @@ public class Spawner : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (!GameManager.instance.theMusic.isPlaying && Cube.isMusicStarted)
-        {
-            GameManager.instance.tempoMarkers.hasStarted = false;
-            Destroy(GameManager.instance.tempoMarkers);
-        }
+
 
     }
 }

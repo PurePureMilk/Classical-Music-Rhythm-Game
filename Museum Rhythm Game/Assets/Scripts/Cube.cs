@@ -7,8 +7,8 @@ public class Cube : MonoBehaviour
     public GameObject marker;
     public GameObject thisCube;
     public int speed = 2;
-    //if it not static then every single note object has control the audio
     public static bool isMusicStarted = false;
+
 
     // Start is called before the first frame update
     void Start()

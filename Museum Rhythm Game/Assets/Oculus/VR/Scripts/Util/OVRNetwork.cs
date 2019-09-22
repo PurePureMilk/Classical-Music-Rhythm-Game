@@ -107,7 +107,7 @@ public class OVRNetwork
 
 			if (tcpListener != null)
 			{
-				Debug.LogFormat("[OVRNetworkTcpServer] Start Listening on port {0}", listeningPort);
+				//Debug.LogFormat("[OVRNetworkTcpServer] Start Listening on port {0}", listeningPort);
 
 				try
 				{

@@ -19,21 +19,22 @@ public class Saber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //saber controls
         RaycastHit hit;
         if(Physics.Raycast(transform.position, transform.forward, out hit, 1, layer))
         {
             if(Vector3.Angle(transform.position - previousPos, hit.transform.up) > 130)
             {
                 Destroy(hit.transform.gameObject);
-
-                /*when you hit, you start the music, but you also need when you miss
-                if (manager.startPlaying == false)
+                GameManager.instance.NoteHit();
+                if (Cube.isMusicStarted == false)
                 {
-                    manager.theMusic.Play();
-                    manager.startPlaying = true;
+                    Cube.isMusicStarted = true;
+                    GameManager.instance.theMusic.Play();
 
                 }
-                */
+                
             }
         }
 
@@ -43,9 +44,21 @@ public class Saber : MonoBehaviour
             if (Vector3.Angle(transform.position - previousPos, hit.transform.up) > 130)
             {
                 Destroy(hit.transform.gameObject);
+                GameManager.instance.NoteHit();
+                if (hit.transform.tag == "Summer Painting")
+                {
+                    string paintingName = hit.transform.name;
+                    GameManager.instance.paintingsCollected.Add(paintingName);
+                }
+                Debug.Log(hit.transform.tag);
+
+
             }
         }
         
         previousPos = transform.position;
+        
+
     }
 }
+
