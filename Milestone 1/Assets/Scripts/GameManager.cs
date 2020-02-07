@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public bool startPlaying;
     public static GameManager instance;
     public Spawner tempoMarkers;
+    public GameObject guideLines;
 
     private float missedHits;
     private float hits;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         theMusic.Stop();
+        guideLines.SetActive(false);
         if (!isVR) {
             Camera.SetActive(true);
             VRCamera.SetActive(false);
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
                 startPlaying = true;
                 tempoMarkers.hasStarted = true;
                 theMusic.Play();
+                guideLines.SetActive(true);
             }
 
         }
